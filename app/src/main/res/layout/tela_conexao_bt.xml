@@ -1,0 +1,58 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:background="@drawable/fundo_tela"> <!-- Aqui você coloca a imagem de fundo -->
+
+    <!-- Título Principal -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="38dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONECTAR AO BRAÇO"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:paddingBottom="24dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Título para Dispositivos -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DISPOSITIVOS PAREADOS"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:paddingBottom="16dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Lista de Dispositivos -->
+    <ListView
+        android:id="@+id/lvDevices"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="16dp"
+        android:background="@drawable/fundo_lista"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Botão de Conectar -->
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONECTAR"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:backgroundTint="@color/roxo"
+        android:background="@drawable/botao_arredondado"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

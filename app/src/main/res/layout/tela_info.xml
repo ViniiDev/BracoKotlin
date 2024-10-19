@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:background="@drawable/fundo_tela">
+
+    <!-- Espaço superior -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="55dp" />
+
+    <!-- Título Principal -->
+
+    <TextView
+        android:id="@+id/btnInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/informacoes_e_ajuda"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:paddingBottom="24dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Adicione mais informações aqui -->
+
+</LinearLayout>
