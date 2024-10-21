@@ -7,7 +7,7 @@ import android.os.Bundle
 // import android.widget.Button
 import android.widget.LinearLayout
 
-class TelaPrincipal : AppCompatActivity() {
+class TelaPrincipal : BaseActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {

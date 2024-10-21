@@ -8,7 +8,7 @@ import com.airbnb.lottie.LottieAnimationView //para usar animações em json
 
 
 //essa tela serve apenas para iniciar o app, mostrando o logo
-class TelaInicial : AppCompatActivity() {
+class TelaInicial : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

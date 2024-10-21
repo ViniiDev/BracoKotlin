@@ -20,9 +20,9 @@ import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothSocket
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.example.bracokotlin.TelaConexaoBT.ConexaoBt
+// import com.example.bracokotlin.TelaEnviaMSG
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var bt_Adapter: BluetoothAdapter // Adaptador Bluetooth
     private lateinit var dispPareados_Adapter: ArrayAdapter<String> // Adaptador para dispositivos pareados
@@ -141,6 +141,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.S)
     private fun conecta_HC06(enderecoMAC: String) {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED ||
             ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
@@ -177,3 +178,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+

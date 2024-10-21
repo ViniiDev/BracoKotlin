@@ -14,7 +14,7 @@ import java.io.IOException
 import java.io.OutputStream
 import java.util.*
 
-class TelaConexaoBT : AppCompatActivity() {
+class TelaConexaoBT : BaseActivity() {
 
     private lateinit var bt_Adapter: BluetoothAdapter // Adaptador Bluetooth para gerenciar as funcionalidades do Bluetooth
     private lateinit var dispPareados_Adapter: ArrayAdapter<String> // Adaptador para exibir dispositivos pareados

@@ -13,6 +13,7 @@ import android.content.pm.PackageManager
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
+import android.view.View
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -21,6 +22,7 @@ class TelaEnviaMSG : AppCompatActivity() {
 
     private lateinit var campo_mensagem: TextView
     private lateinit var speechRecognizer: SpeechRecognizer
+    private var isKeywordRecognized = false // Variável que indica se a palavra "Olá" foi reconhecida
     private var ultimaAcao: String? = null // Variável para armazenar a última ação
         set(value) {
             field = value
@@ -33,7 +35,7 @@ class TelaEnviaMSG : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tela_envia_msg)
-
+        Toast.makeText(this@TelaEnviaMSG, "Diga 'Olá' para iniciar", Toast.LENGTH_SHORT).show()
         campo_mensagem = findViewById(R.id.tvText)
 
         // Checar permissões de gravação de áudio
@@ -55,25 +57,54 @@ class TelaEnviaMSG : AppCompatActivity() {
                 val matches = results?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION)
                 val spokenText = matches?.get(0) ?: ""
 
-                campo_mensagem.text = spokenText
+                // Atualizar 'ultimaAcao' e enviar via Bluetooth
+                when {
+                    !isKeywordRecognized -> {
+                        // Se ainda não reconheceu "Olá", verifica se foi dito
+                        if (spokenText.equals("Olá", ignoreCase = true)) {
+                            isKeywordRecognized = true
+                            campo_mensagem.visibility = View.VISIBLE // Exibe o campo de mensagem
+                            Toast.makeText(this@TelaEnviaMSG, "Reconhecimento de voz iniciado!", Toast.LENGTH_SHORT).show()
+                                startFullRecognition() // Inicia o reconhecimento total
+                            } else {
+                                // Continua escutando até que "Olá" seja dito
+                                startFullRecognition()
+                            }
+                        }
+                        else -> {
+                            campo_mensagem.text = spokenText
+                            startFullRecognition() // Continua ouvindo os próximos comandos
+                        }
 
+                }
                 // Atualizar 'ultimaAcao' e enviar via Bluetooth
                 when {
                     spokenText.equals("Abrir mão", ignoreCase = true) -> {
                         ultimaAcao = "Abrir mão"
                         Toast.makeText(this@TelaEnviaMSG, "Comando $ultimaAcao enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
                     }
                     spokenText.equals("Fechar mão", ignoreCase = true) -> {
                         ultimaAcao = "Fechar mão"
                         Toast.makeText(this@TelaEnviaMSG, "Comando $ultimaAcao enviado!", Toast.LENGTH_SHORT).show()
-                    }
-                    spokenText.equals("Olá", ignoreCase = true) -> {
                         startFullRecognition()
                     }
                     spokenText.equals("Sair", ignoreCase = true) -> {
                         isListening = false
                         Toast.makeText(this@TelaEnviaMSG, "Reconhecimento de voz encerrado", Toast.LENGTH_SHORT).show()
                         speechRecognizer.stopListening()
+                    }
+                    spokenText.equals("Conectar braço", ignoreCase = true) -> {
+                        val intent = Intent(this@TelaEnviaMSG, TelaConexaoBT::class.java)
+                        startActivity(intent)
+                    }
+                    spokenText.equals("Ajuda", ignoreCase = true) -> {
+                        val intent = Intent(this@TelaEnviaMSG, TelaInfo::class.java)
+                        startActivity(intent)
+                    }
+                    spokenText.equals("Home", ignoreCase = true) -> {
+                        val intent = Intent(this@TelaEnviaMSG, TelaPrincipal::class.java)
+                        startActivity(intent)
                     }
                     else -> {
                         if (isListening) startListening()

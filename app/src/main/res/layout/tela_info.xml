@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"> caso o texto fique muito grande adiciona o scroll  -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
@@ -8,24 +11,179 @@
     android:gravity="center_horizontal"
     android:background="@drawable/fundo_tela">
 
-    <!-- Espaço superior -->
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="55dp" />
-
     <!-- Título Principal -->
-
     <TextView
         android:id="@+id/btnInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/informacoes_e_ajuda"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/white"
         android:paddingBottom="24dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal" >
+    </TextView>
+    <!-- Subtítulo - Conectar Bluetooth -->
+    <TextView
+        android:id="@+id/tvConnectBluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Conectar o Bluetooth:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white" />
 
-    <!-- Adicione mais informações aqui -->
+    <!-- Passo 1 - Conectar o Bluetooth -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Abra o app e verifique se o Bluetooth do seu dispositivo está ativado."
+        android:textSize="16sp"
+        android:paddingBottom="1dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Conecte o dispositivo ao braço robótico via Bluetooth, seguindo as opções de pareamento fornecidas."
+        android:textSize="16sp"
+        android:paddingBottom="1dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <!-- Subtítulo - Iniciar Reconhecimento de Voz -->
+    <TextView
+        android:id="@+id/tvStartVoiceRecognition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar o Reconhecimento de Voz:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"
+        android:textColor="@color/white" />
+
+    <!-- Passo 2 - Iniciar o Reconhecimento de Voz -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Após conectar, vá até a tela Enviar comandos."
+        android:textSize="16sp"
+        android:paddingBottom="1dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Diga 'Olá' para ativar o reconhecimento de voz."
+        android:textSize="16sp"
+        android:paddingBottom="1dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <!-- Passo 3 - Enviar Comandos por Voz -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Após a ativação com 'Olá', fale os comandos específicos para controlar o braço robótico:"
+        android:textSize="16sp"
+        android:paddingBottom="16dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <!-- Comandos de Voz -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="     'Abrir mão': O braço robótico abrirá a mão."
+        android:textSize="16sp"
+        android:paddingBottom="1dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="     'Fechar mão': O braço robótico fechará a mão."
+        android:textSize="16sp"
+        android:paddingBottom="1dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="     'X': X"
+        android:textSize="16sp"
+        android:paddingBottom="4dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="     'X' – X"
+        android:textSize="16sp"
+        android:paddingBottom="16dp"
+        android:layout_gravity="left"
+        android:textColor="@color/white" />
+
+    <!-- Subtítulo - Encerrar Reconhecimento -->
+    <TextView
+        android:id="@+id/tvEndRecognition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Encerrar o Reconhecimento de Voz:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"
+        android:textColor="@color/white" />
+
+    <!-- Passo 4 - Encerrar o Reconhecimento de Voz -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Para finalizar o controle por voz, diga 'Sair' e o reconhecimento de voz será interrompido."
+        android:textSize="16sp"
+        android:paddingBottom="1dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Para desconectar do braço robótico, desligue seu bluetooth e finalize a conexão."
+        android:textSize="16sp"
+        android:paddingBottom="16dp"
+        android:textColor="@color/white" />
+
+    <!-- Dicas -->
+    <TextView
+        android:id="@+id/tvTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dicas:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Certifique-se de estar em um ambiente silencioso para garantir que os comandos sejam reconhecidos corretamente."
+        android:textSize="16sp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="• Mantenha o dispositivo próximo ao braço robótico para uma melhor conexão Bluetooth."
+        android:textSize="16sp"
+        android:paddingBottom="16dp"
+        android:textColor="@color/white" />
 </LinearLayout>
+    <!-- </ScrollView> -->
