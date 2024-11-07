@@ -79,21 +79,80 @@ class TelaEnviaMSG : AppCompatActivity() {
                 }
                 // Atualizar 'ultimaAcao' e enviar via Bluetooth
                 when {
-                    spokenText.equals("Abrir mão", ignoreCase = true) -> {
-                        ultimaAcao = "Abrir mão"
-                        Toast.makeText(this@TelaEnviaMSG, "Comando $ultimaAcao enviado!", Toast.LENGTH_SHORT).show()
-                        startFullRecognition()
-                    }
                     spokenText.equals("Fechar mão", ignoreCase = true) -> {
-                        ultimaAcao = "Fechar mão"
-                        Toast.makeText(this@TelaEnviaMSG, "Comando $ultimaAcao enviado!", Toast.LENGTH_SHORT).show()
+                        ultimaAcao = "A"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Fechar mão enviado!", Toast.LENGTH_SHORT).show()
                         startFullRecognition()
                     }
-                    spokenText.equals("Sair", ignoreCase = true) -> {
-                        isListening = false
-                        Toast.makeText(this@TelaEnviaMSG, "Reconhecimento de voz encerrado", Toast.LENGTH_SHORT).show()
-                        speechRecognizer.stopListening()
+                    spokenText.equals("Abrir mão", ignoreCase = true) -> {
+                        ultimaAcao = "B"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Abrir mão enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
                     }
+                    // COMANDOS PARA ABRIR OS DEDOS
+                    spokenText.equals("Abrir polegar", ignoreCase = true) -> {
+                        ultimaAcao = "C"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Abrir polegar enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Abrir indicador", ignoreCase = true) -> {
+                        ultimaAcao = "D"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Abrir indicador enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Abrir medio", ignoreCase = true) -> {
+                        ultimaAcao = "E"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Abrir medio enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Abrir anelar", ignoreCase = true) -> {
+                        ultimaAcao = "F"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Abrir anelar enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Abrir mindinho", ignoreCase = true) -> {
+                        ultimaAcao = "G"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Abrir mindinho enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    // COMANDOS PARA FECHAR OS DEDOS
+                    spokenText.equals("Fechar polegar", ignoreCase = true) -> {
+                        ultimaAcao = "H"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Fechar polegar enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Fechar indicador", ignoreCase = true) -> {
+                        ultimaAcao = "I"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Fechar indicador enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Fechar medio", ignoreCase = true) -> {
+                        ultimaAcao = "J"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Fechar medio enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Fechar anelar", ignoreCase = true) -> {
+                        ultimaAcao = "K"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Fechar anelar enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Fechar mindinho", ignoreCase = true) -> {
+                        ultimaAcao = "L"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Fechar mindinho enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    //COMANDOS PARA ABRIR E FECHAR 'PINÇA' COM O INDICADOR E POLEGAR
+                    spokenText.equals("Abrir pinça", ignoreCase = true) -> {
+                        ultimaAcao = "M"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Abrir pinça enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    spokenText.equals("Fechar pinça", ignoreCase = true) -> {
+                        ultimaAcao = "N"
+                        Toast.makeText(this@TelaEnviaMSG, "Comando Fechar pinça enviado!", Toast.LENGTH_SHORT).show()
+                        startFullRecognition()
+                    }
+                    // COMANDOS PARA NAVEGAR ENTRE AS TELAS DENTRO DA TELA DE ENVIAR MENSAGEM
                     spokenText.equals("Conectar braço", ignoreCase = true) -> {
                         val intent = Intent(this@TelaEnviaMSG, TelaConexaoBT::class.java)
                         startActivity(intent)
@@ -105,6 +164,11 @@ class TelaEnviaMSG : AppCompatActivity() {
                     spokenText.equals("Home", ignoreCase = true) -> {
                         val intent = Intent(this@TelaEnviaMSG, TelaPrincipal::class.java)
                         startActivity(intent)
+                    }
+                    spokenText.equals("Sair", ignoreCase = true) -> {
+                        isListening = false
+                        Toast.makeText(this@TelaEnviaMSG, "Reconhecimento de voz encerrado", Toast.LENGTH_SHORT).show()
+                        speechRecognizer.stopListening()
                     }
                     else -> {
                         if (isListening) startListening()

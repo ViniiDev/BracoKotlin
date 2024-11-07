@@ -1,7 +1,6 @@
 package com.example.bracokotlin
 
 import android.Manifest
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.pm.PackageManager
 import android.widget.ArrayAdapter
